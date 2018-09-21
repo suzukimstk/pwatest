@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="manifest" href="./manifest.json">
-  <script>
+<script>
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js').then(function(registration) {
         console.log('ServiceWorker registration successful with scope: ', registration.scope);
@@ -11,6 +11,7 @@ if ('serviceWorker' in navigator) {
         console.log('ServiceWorker registration failed: ', err);
     });
 }
+</script>
     <script src="SlideShow.js"></script>
     <script>
         window.onload = function () {
@@ -19,11 +20,11 @@ if ('serviceWorker' in navigator) {
             book.addTextData(i, 10, 360, "PWA IntroDuction", "80","rgb(192,168,0)",true);
             
             i++;
-            book.addTextData(i, 10, 150, "・Hoge", "40",true);
-            book.addTextData(i, 30, 200, "　Hoge", "30");
-            book.addTextData(i, 30, 250, "　Hoge", "30");
-            book.addTextData(i, 30, 300, "　Hoge", "30");
-            book.addTextData(i, 30, 350, "　Hoge", "30");
+            book.addTextData(i, 10, 150, "繝ｻHoge", "40",true);
+            book.addTextData(i, 30, 200, "Hoge", "30");
+            book.addTextData(i, 30, 250, "Hoge", "30");
+            book.addTextData(i, 30, 300, "Hoge", "30");
+            book.addTextData(i, 30, 350, "Hoge", "30");
             
             book.dataIndex = -1;
             book.setBackGround("background.jpg");
@@ -51,9 +52,9 @@ if ('serviceWorker' in navigator) {
 </head>
 <body>
 	<div style="left:10px;right:10px;top:10px;margin:0 auto;position:absolute;width:300px">
-		<button id="prev">前へ</button>
+		<button id="prev"><</button>
 		<input id="pagenum" type="range" min="1">
-		<button id="next">次へ</button>
+		<button id="next">></button>
     </div>
     <canvas id="slider" width="1000" height="750" style="left:0;right:0;top:40px;position:absolute;margin:0 auto;border:1px solid black;">
     </canvas>
