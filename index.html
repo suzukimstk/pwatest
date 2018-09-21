@@ -1,7 +1,7 @@
-<!-- index.html -->
 <html>
 <head>
-  <!-- manifest.jsonを呼び出しています -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="manifest" href="./manifest.json">
   <script>
 if ('serviceWorker' in navigator) {
@@ -11,24 +11,52 @@ if ('serviceWorker' in navigator) {
         console.log('ServiceWorker registration failed: ', err);
     });
 }
+    <script src="SlideShow.js"></script>
+    <script>
+        window.onload = function () {
+            var book = new SlideShow("slider");
+            var i = 1;
+            book.addTextData(i, 10, 360, "PWA IntroDuction", "80","rgb(192,168,0)",true);
+            
+            i++;
+            book.addTextData(i, 10, 150, "・Hoge", "40",true);
+            book.addTextData(i, 30, 200, "　Hoge", "30");
+            book.addTextData(i, 30, 250, "　Hoge", "30");
+            book.addTextData(i, 30, 300, "　Hoge", "30");
+            book.addTextData(i, 30, 350, "　Hoge", "30");
+            
+            book.dataIndex = -1;
+            book.setBackGround("background.jpg");
+            
+            document.getElementById("prev").addEventListener("click",function(){
+            	book.prev();
+            	document.getElementById("pagenum").value = book.dataIndex;
+            });
+            
+            document.getElementById("next").addEventListener("click",function(){
+            	book.next();
+            	document.getElementById("pagenum").value = book.dataIndex;
+            });
+            var pagenums = document.getElementById("pagenum");
+            pagenums.max = i - 1;
+            pagenums.value = 1;
+            
+            pagenums.addEventListener("change",function(){
+            	book.jumppage(parseInt(document.getElementById("pagenum").value));
+            });
+        }
+    </script>
   </script>
   <title>Hello PWA.</title>
-  <style>
-    body {
-      text-align:center;
-      font-size: 40px;
-      vertical-align: middle;
-    }
-    .image {
-      width: 80%; 
-      margin: auto;
-      display: block;
-    }
-  </style>
 </head>
 <body>
-  <h1>Hello PWA.</h1>
-  <img src="./pwa-logo.svg" alt="PWA logo" class="image" />
-  <a href="p.html">p.html</a>
+	<div style="left:10px;right:10px;top:10px;margin:0 auto;position:absolute;width:300px">
+		<button id="prev">前へ</button>
+		<input id="pagenum" type="range" min="1">
+		<button id="next">次へ</button>
+    </div>
+    <canvas id="slider" width="1000" height="750" style="left:0;right:0;top:40px;position:absolute;margin:0 auto;border:1px solid black;">
+    </canvas>
+</div>
 </body>
 </html>
