@@ -4,7 +4,8 @@
 var CACHE_NAME = 'pwa-sample-caches';
 var urlsToCache = [
     './background.jpg',
-    './SlideShow.js'
+    './SlideShow.js',
+    './index.html'
 ];
 
 // インストール処理
