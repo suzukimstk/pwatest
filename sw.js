@@ -1,8 +1,11 @@
 // ServiceWorker処理：https://developers.google.com/web/fundamentals/primers/service-workers/?hl=ja
 
 // キャッシュ名とキャッシュファイルの指定
-var CACHE_NAME = 'pwa-sample-1.01';
+var CACHE_NAME = 'pwa-sample-1.02';
 var urlsToCache = [
+    './background.jpg',
+    './What4-1.jpg',
+    './What4-2.png',
     './background.jpg',
     './SlideShow.js',
     './index.html'
