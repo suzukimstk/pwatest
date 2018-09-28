@@ -8,7 +8,8 @@ var urlsToCache = [
     './What4-2.jpg',
     './background.jpg',
     './SlideShow.js',
-    './index.html'
+    './index.html',
+    './jquery-3.3.1.min.js'
 ];
 
 // インストール処理
