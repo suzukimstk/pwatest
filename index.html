@@ -12,10 +12,31 @@ if ('serviceWorker' in navigator) {
     });
 }
 </script>
+    <script src="jquery-3.3.1.min.js"></script>
     <script src="SlideShow.js"></script>
     <script>
+    	function onResize(){
+            var w = $(window).width();
+            var h = w * 3 / 4;
+            
+            if(h > $(window).height() - 50){
+            	var diff = h - $(window).height() + 50;
+            	h = $(window).height() - 50;
+            	w = w - (diff * 4 / 3);
+            }
+            
+            
+            $("#slider").css({
+            	width: w,
+            	height: h
+            });
+    	}
+    	window.onresize = onResize;
+    
         window.onload = function () {
             var book = new SlideShow("slider");
+            
+            onResize();
             var i = 1;
             book.addTextData(i, 10, 360, "PWA IntroDuction", "80","rgb(192,168,0)",true);
             
@@ -30,18 +51,19 @@ if ('serviceWorker' in navigator) {
             book.addTextData(i, 30, 200, "Progressive Web Appの略称", "30");
             book.addTextData(i, 30, 250, "グーグルがモバイルユーザーのユーザー体験向上を目的とし、今までの", "30");
             book.addTextData(i, 30, 290, "Webアプリ（サービス）にWebとアプリの両方の利点を兼ね備えた仕組み", "30");
-            book.addTextData(i, 30, 450, "らしい", "50");
+            book.addTextData(i, 30, 450, "らしい", "50");            
+            i++;
+            book.addTextData(i, 10, 130, "つまり？", "80",true);
+            book.addTextData(i, 30, 200, "ネイティブアプリ的なユーザ体験を提供できるウェブアプリ", "50");
+            book.addTextData(i, 30, 250, "＝ネイティブアプリのように動くWebページ", "50");
             
             i++;
-            book.addTextData(i, 10, 130, "2.PWA対応でできること", "50",true);
+            book.addTextData(i, 10, 130, "2.PWAのなにがいい？", "50",true);
             book.addTextData(i, 30, 200, "①レスポンス向上/オフライン利用", "30");
             book.addTextData(i, 30, 240, "②アップデート/リリース審査/インストール不要", "30");
             book.addTextData(i, 30, 280, "③Push、GPSなどの端末APIへのアクセス", "30");
             book.addTextData(i, 30, 320, "④ブラウザ固有のUIの排除", "30");
             
-            book.addTextData(i, 10, 500, "つまり？", "60",true);
-            book.addTextData(i, 30, 550, "ネイティブアプリ的なユーザ体験を提供できるウェブアプリ", "30");
-            book.addTextData(i, 30, 600, "どっかで聞いたような・・・", "20");
             
             //i++;
             //book.addTextData(i, 10, 130,  "④.ブラウザ固有のUIの排除", "50",true);
