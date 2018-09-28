@@ -5,7 +5,7 @@ var CACHE_NAME = 'pwa-sample-1.02';
 var urlsToCache = [
     './background.jpg',
     './What4-1.jpg',
-    './What4-2.png',
+    './What4-2.jpg',
     './background.jpg',
     './SlideShow.js',
     './index.html'
