@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="manifest" href="./manifest.json">
+  <link rel="manifest" href="./manifest.json?201810011226">
 <script>
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('sw.js').then(function(registration) {
@@ -61,15 +61,7 @@ if ('serviceWorker' in navigator) {
             book.addTextData(i, 30, 200, "①レスポンス向上/オフライン利用", "30");
             book.addTextData(i, 30, 240, "②アップデート/リリース審査/インストール不要", "30");
             book.addTextData(i, 30, 280, "③Push、GPSなどの端末APIへのアクセス", "30");
-            book.addTextData(i, 30, 320, "④ブラウザ固有のUIの排除", "30");
-            
-            
-            i++;
-            book.addTextData(i, 10, 130,  "④.ブラウザ固有のUIの排除", "50",true);
-            book.addTextData(i, 10, 180, "・PWA表示", "30");
-            book.addTextData(i, 400,180, "・ブラウザ表示", "30");
-            book.addImageData(i, "What4-1.jpg",10, 200,0.3);
-            book.addImageData(i, "What4-2.jpg",400,200,0.3);
+            book.addTextData(i, 30, 320, "④ブラウザ固有のUIの排除", "30");            
             
             i++;
             book.addTextData(i, 10, 130, "3.Example", "50",true);
@@ -88,7 +80,8 @@ if ('serviceWorker' in navigator) {
             i++;
             book.addTextData(i, 10, 130, "①Web App Manifest", "50",true);
             book.addTextData(i, 30, 200, "このサイト(アプリケーション)が何者かを定義する。(②の一部、④)", "30");
-            book.addImageData(i, "manifest.png",10, 250,1.5);
+            book.addImageData(i, "manifest.png",10, 250, 1.5);
+            book.addImageData(i, "manifest2.png",400, 250 ,0.5);
             
             i++;
             book.addTextData(i, 10, 130, "②Service Worker", "50",true);
@@ -96,11 +89,19 @@ if ('serviceWorker' in navigator) {
             book.addImageData(i, "sw.png",10, 250,1.1);
             
             i++;
-            book.addTextData(i, 10, 130,  "閑話休題", "50",true);
+            book.addTextData(i, 10, 130,  "2.④.ブラウザ固有のUIの排除", "50",true);
+            book.addTextData(i, 10, 180, "・PWA表示", "30");
+            book.addTextData(i, 10,480, "・ブラウザ表示", "30");
+            book.addImageData(i, "What4-1.png",10, 200,0.3);
+            book.addImageData(i, "What4-2.png",10,500,0.3);
             
             i++;
             book.addTextData(i, 10, 130, "4.留意点", "50",true);
-            book.addTextData(i, 30, 200, "全てのコンテンツがHTTPSである必要がある。", "30");
+            book.addTextData(i, 30, 200, "①全てのコンテンツがHTTPSである必要がある。", "30");
+            book.addTextData(i, 30, 240, "↑自己証明書(いわゆるオレオレ証明書)不可", "30");
+            book.addTextData(i, 30, 300, "②非対応ブラウザがある(IE、Operaの一部)", "30");
+            book.addTextData(i, 30, 340, "↑最近までSafariも不可(iOS11.3から対応)", "30");
+            
             
             book.dataIndex = -1;
             book.setBackGround("background.jpg");
