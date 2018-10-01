@@ -8,6 +8,7 @@ var urlsToCache = [
     './what4-2.PNG',
     './manifest.png',
     './sw.png',
+    './inline.css',
     './background.jpg',
     './SlideShow.js',
     './index.html',
