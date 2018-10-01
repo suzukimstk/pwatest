@@ -1,7 +1,11 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PWA IntroDuction</title>
+  <link rel="stylesheet" type="text/css" href="styles/inline.css">
   <link rel="manifest" href="./manifest.json?201810011239">
 <script>
 if ('serviceWorker' in navigator) {
@@ -79,7 +83,7 @@ if ('serviceWorker' in navigator) {
             book.addTextData(i, 10, 130, "・PWA構成要素", "50",true);
             book.addTextData(i, 30, 240, "①Web App Manifest", "30");
             book.addTextData(i, 30, 280, "②Service Worker", "30");
-            book.addTextData(i, 30, 320, "③HTMLアプリケーション", "30")
+            book.addTextData(i, 30, 320, "③Webアプリ", "30")
             
             i++;
             book.addTextData(i, 10, 130, "①Web App Manifest", "50",true);
@@ -91,6 +95,17 @@ if ('serviceWorker' in navigator) {
             book.addTextData(i, 10, 130, "②Service Worker", "50",true);
             book.addTextData(i, 30, 200, "ブラウザとは別にバックグラウンドで動くjs(①、②、③)", "30");
             book.addImageData(i, "sw.png",10, 250,1.1);
+            
+            i++;
+            book.addTextData(i, 10, 130, "③Webアプリ", "50",true);
+            book.addTextData(i, 30, 200, "私たちが普段開発してるあれ", "30");
+            
+            i++;
+            book.addTextData(i, 10, 130,  "2.④.ブラウザ固有のUIの排除", "50",true);
+            book.addTextData(i, 10, 180, "・PWA表示", "30");
+            book.addTextData(i, 10,480, "・ブラウザ表示", "30");
+            book.addImageData(i, "what4-1.PNG",10, 200,0.3);
+            book.addImageData(i, "what4-2.PNG",10,500,0.3);
             
             i++;
             book.addTextData(i, 10, 130,  "2.④.ブラウザ固有のUIの排除", "50",true);
@@ -129,16 +144,23 @@ if ('serviceWorker' in navigator) {
         }
     </script>
   </script>
-  <title>Hello PWA.</title>
 </head>
 <body>
-	<div style="left:10px;right:10px;top:10px;margin:0 auto;position:absolute;width:300px">
-		<button id="prev"><</button>
-		<input id="pagenum" type="range" min="1">
-		<button id="next">></button>
-    </div>
+  <header class="header">
+	<button id="prev"><</button>
+	<input id="pagenum" type="range" min="1">
+	<button id="next">></button>
+  </header>
+
+  <main class="main">
     <canvas id="slider" width="1000" height="750" style="left:0;right:0;top:40px;position:absolute;margin:0 auto;border:1px solid black;">
     </canvas>
-</div>
+  </main>
+
+  <div class="loader">
+    <svg viewBox="0 0 32 32" width="32" height="32">
+      <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+    </svg>
+  </div>
 </body>
 </html>
