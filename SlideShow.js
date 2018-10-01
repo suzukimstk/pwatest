@@ -49,20 +49,20 @@ SlideShow.prototype.DrawPage = function(){
 			var wy = obj.y;
 			
 			images.push(new Image());
-			images[images.length-1].alt = wx + "," +wy;
+			images[images.length-1].alt = wx + "," +wy+","+obj.scale;
 			images[images.length-1].onload = function() {
 				var x = this.alt.split(",")[0];
 				var y = this.alt.split(",")[1];
+				var scale = this.alt.split(",")[2];
 				
-				if(x =="center") x = (_this.slide.width - this.width * _obj.scale) / 2;
+				if(x =="center") x = (_this.slide.width - this.width * scale) / 2;
 				else if (x =="left") x = _this.blankLR;
-				else if (x =="right") x = (_this.slide.width - this.width * _obj.scale) + _this.blankLR;
-				if(y =="center") y = (_this.slide.height - this.height * _obj.scale) / 2;
+				else if (x =="right") x = (_this.slide.width - this.width * scale) + _this.blankLR;
+				if(y =="center") y = (_this.slide.height - this.height * scale) / 2;
 				else if (y =="top") y = _this.blankTB;
-				else if (y =="bottom") y = (_this.slide.height - this.height * _obj.scale) +_this.blankTB;
-				
-				if(_obj.scale > -1){
-					_this.context.drawImage(this, x , y , this.width * _obj.scale, this.height * _obj.scale);
+				else if (y =="bottom") y = (_this.slide.height - this.height * scale) +_this.blankTB;
+				if(scale > -1){
+					_this.context.drawImage(this, x , y , this.width * scale, this.height * scale);
 				} else {
 					_this.context.drawImage(this,x, y);
 				}
@@ -141,6 +141,10 @@ SlideShow.prototype.addImageData = function(page,source,x,y,scale){
 	if(!this.datas[page-1]){
 		this.datas[page-1] = [];
 	}
+	if(!scale){
+		scale = 1;
+	}
+	console.log(scale);
     var page1 = this.datas[page-1];
     var obj;
     obj = {
@@ -150,5 +154,6 @@ SlideShow.prototype.addImageData = function(page,source,x,y,scale){
     	y:y,
     	scale: scale,
 	}
+	console.log(obj.scale);
     page1.push(obj);
 }
